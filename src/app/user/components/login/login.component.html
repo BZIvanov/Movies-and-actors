@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-3"></div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <h1>Login Form</h1>
+            <form #myForm="ngForm" (ngSubmit)="login(myForm.value)">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="Your email" required ngModel >
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                    </div>
+                    <input type="password" name="password" class="form-control" placeholder="Your password" required ngModel >
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Login</button>
+                </div>
+
+                <pre>{{ myForm.value | json }}</pre>
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-3"></div>
+    </div>
+</div>
