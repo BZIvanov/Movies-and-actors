@@ -11,6 +11,7 @@ import { UserModule } from './user/user.module';
 import { MoviesModule } from './movies/movies.module';
 
 // hello some text added
+// another row
 
 @NgModule({
   declarations: [
