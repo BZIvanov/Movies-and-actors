@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { MoviesModule } from './movies/movies.module';
 
-// hello
+// hello some text added
 
 @NgModule({
   declarations: [
