@@ -21,4 +21,8 @@ export class UserHandleService {
     localStorage.setItem("username", userData.username);
     localStorage.setItem("authtoken", userData._kmd.authtoken);
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem("authtoken") ? false : true;
+  }
 }
