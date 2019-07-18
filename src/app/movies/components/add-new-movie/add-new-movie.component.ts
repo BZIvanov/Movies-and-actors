@@ -20,11 +20,13 @@ export class AddNewMovieComponent implements OnInit, OnDestroy {
 
   addMovie(formData: Object) {
     this.moviesStream$ = this.moviesService.addNewMovie(formData).subscribe(movies => {
-      this.router.navigate(['home']);
+      this.router.navigate(['movie', 'all']);
     })
   }
 
   ngOnDestroy() {
-    this.moviesStream$.unsubscribe();
+    if (this.moviesStream$) {
+      this.moviesStream$.unsubscribe();
+    }
   }
 }
