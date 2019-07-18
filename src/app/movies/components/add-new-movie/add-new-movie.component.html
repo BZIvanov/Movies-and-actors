@@ -1,0 +1,47 @@
+<div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-3"></div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <h1>Add new movie</h1>
+                <form #myForm="ngForm" (ngSubmit)="addMovie(myForm.value)">
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        </div>
+                        <input type="text" name="title" class="form-control" placeholder="Title" required ngModel >
+                    </div>
+    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        </div>
+                        <input type="number" name="year" class="form-control" placeholder="Year" required ngModel >
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        </div>
+                        <input type="text" name="imageUrl" class="form-control" placeholder="image URL" required ngModel >
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        </div>
+                        <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Description" required ngModel></textarea>
+                        
+                    </div>
+    
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Add new movie</button>
+                    </div>
+    
+                    <!-- <pre>{{ myForm.value | json }}</pre> -->
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-3"></div>
+        </div>
+    </div>
+    

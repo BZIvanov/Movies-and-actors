@@ -8,7 +8,8 @@ import { HomeComponent } from './core/components/home/home.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component:  HomeComponent },
-  { path: 'user', loadChildren: './user/user.module#UserModule' }
+  { path: 'user', loadChildren: './user/user.module#UserModule' },
+  { path: 'movie', loadChildren: './movies/movies.module#MoviesModule' }
 ];
 
 @NgModule({
