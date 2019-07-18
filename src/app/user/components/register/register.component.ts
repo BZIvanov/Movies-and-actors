@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { UserHandleService } from '../../services/user-handle.service';
+import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,14 +13,15 @@ import { UserHandleService } from '../../services/user-handle.service';
 export class RegisterComponent implements OnInit, OnDestroy {
   private registerStream$: Subscription;
 
-  constructor(private userService: UserHandleService, private router: Router) { }
+  constructor(private userService: UserHandleService, private router: Router,
+    private userAuth: UserAuthService) { }
 
   ngOnInit() {
   }
 
   register(data: any) {
     this.registerStream$ = this.userService.registerUser(data).subscribe(response => {
-      this.userService.saveUserData(response);
+      //Sthis.userAuth.saveUserData(response);
       this.router.navigate(['/user', 'login']);
     });
   }

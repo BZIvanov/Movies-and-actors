@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { UserHandleService } from '../../services/user-handle.service';
+import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,14 @@ import { UserHandleService } from '../../services/user-handle.service';
 export class LoginComponent implements OnInit, OnDestroy {
   private loginStream$: Subscription;
 
-  constructor(private userService: UserHandleService, private router: Router) { }
+  constructor(private userService: UserHandleService, private router: Router, private userAuth: UserAuthService) { }
 
   ngOnInit() {
   }
 
   login(data: any) {
     this.loginStream$ = this.userService.loginUser(data).subscribe(response => {
-      this.userService.saveUserData(response);
+      this.userAuth.saveUserData(response);
       this.router.navigate(['/home']);
     });
   }

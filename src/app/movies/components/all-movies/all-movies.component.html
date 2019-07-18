@@ -1,0 +1,7 @@
+<p>Start</p>
+<div *ngFor="let movie of movies$ | async">
+    <!-- {{ movie | json }} -->
+    <h2>{{movie.title}}</h2>
+    <img [src]="movie.imageUrl" alt="{{movie.title}}">
+</div>
+<p>Here are all movies</p>
