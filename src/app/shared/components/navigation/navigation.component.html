@@ -5,8 +5,20 @@
                 <a routerLink="home">Home</a>
             </li>
             <li>
+                |
+            </li>
+
+            <li class="nav-item dropdown">
                 <a routerLink="home">Movies</a>
             </li>
+            <li class="nav-item dropdown">
+                <a routerLink="movie/add">New movie</a>
+            </li>
+
+            <li>
+                |
+            </li>
+
             <li *ngIf="hasUser()">
                 <a routerLink="user/register">Register</a>
             </li>
