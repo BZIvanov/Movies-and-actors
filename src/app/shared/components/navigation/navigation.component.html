@@ -8,6 +8,24 @@
                 |
             </li>
 
+            <li appDropdownMenu>
+                <!-- <button></button>
+                <ul>
+                    <li>
+                        <a routerLink="movie/all">Movies</a>
+                    </li>
+                    <li>
+                        <a routerLink="movie/add" >New movie</a>
+                    </li>
+                </ul> -->
+                
+                <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+                <mat-menu #belowMenu="matMenu" yPosition="below">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+            </li>
+
             <li *ngIf="hasUser()">
                 <a routerLink="movie/all">Movies</a>
             </li>
