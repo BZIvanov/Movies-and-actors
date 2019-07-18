@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserHandleService } from 'src/app/user/services/user-handle.service';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserHandleService) { }
 
   ngOnInit() {
   }
 
+  logoutUser() {
+    localStorage.clear();
+  }
+
+  hasUser(): boolean {
+    return this.userService.isLoggedIn();
+  }
 }
