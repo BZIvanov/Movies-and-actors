@@ -16,20 +16,16 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     
-    if (request.url.endsWith('/login')) {
+    if (request instanceof HttpRequest) {
       request = request.clone({
         setHeaders: {
-          Authorization: `'Kinvey ${localStorage.getItem('authtoken')}`
-        }
-      });
-    } else {
-      request = request.clone({
-        setHeaders: {
+          //Authorization: `'Kinvey ${localStorage.getItem('authtoken')}`
           Authorization: `Basic ${btoa(constants.kinveyAppKey + ':' + constants.kinveyAppSecret)}`
         }
       });
     }
-    console.log(request)
+    
+    //console.log(request)
     return next.handle(request);
   }
 }

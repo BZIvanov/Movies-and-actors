@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { UserHandleService } from '../../services/user-handle.service';
 
@@ -7,17 +9,24 @@ import { UserHandleService } from '../../services/user-handle.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+  private registerStream$: Subscription;
 
-  constructor(private userService: UserHandleService) { }
+  constructor(private userService: UserHandleService, private router: Router) { }
 
   ngOnInit() {
   }
 
   register(data: any) {
-    this.userService.registerUser(data).subscribe(data => {
-      console.log(data);
+    this.registerStream$ = this.userService.registerUser(data).subscribe(response => {
+      this.userService.saveUserData(response);
+      this.router.navigate(['/user', 'login']);
     });
   }
 
+  ngOnDestroy() {
+    if (this.registerStream$) {
+      this.registerStream$.unsubscribe();
+    }
+  }
 }
