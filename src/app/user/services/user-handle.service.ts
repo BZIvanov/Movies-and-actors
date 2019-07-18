@@ -16,4 +16,9 @@ export class UserHandleService {
   loginUser (data: any) {
     return this.http.post<any>(constants.baseUrl + "user/" + constants.kinveyAppKey + "/login", data);
   }
+
+  saveUserData(userData: any) {
+    localStorage.setItem("username", userData.username);
+    localStorage.setItem("authtoken", userData._kmd.authtoken);
+  }
 }
