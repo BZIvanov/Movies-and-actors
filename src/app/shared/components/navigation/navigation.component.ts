@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserAuthService } from '../../../core/services/user-auth.service';
+import { UserHandleService } from '../../../user/services/user-handle.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,14 +10,16 @@ import { UserAuthService } from '../../../core/services/user-auth.service';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private userService: UserAuthService) { }
+  constructor(private userService: UserAuthService, private userHandle: UserHandleService) { }
   username: string = localStorage.getItem("username");
 
   ngOnInit() {
   }
 
   logoutUser() {
-    localStorage.clear();
+    this.userHandle.logoutUser().subscribe(response => {
+      localStorage.clear();
+    });
   }
 
   hasUser(): boolean {
