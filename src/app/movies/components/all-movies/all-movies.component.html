@@ -6,24 +6,26 @@
     </div>
 
     <div class="row">
-        <div class="card mb-3 text-center col-lg-4 col-md-6 col-sm-6" *ngFor="let movie of movies$ | async">
-            <h3 class="card-header">{{movie.title}}</h3>
-            <a [routerLink]="['/movie', 'details', movie._id]">
-                <img style="height: 200px; width: 100%; display: block;" [src]="movie.imageUrl" alt="Card image">
-            </a>
-            <div class="card-body">
-                <p class="card-text">{{movie.description}}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Release Year: {{movie.year}}</li>
-            </ul>
-            <div class="card-body">
-                <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
-                    <button class="btn btn-primary">Details</button>
+        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let movie of movies$ | async">
+            <div class="card text-center">
+                <h3 class="card-header">{{movie.title}}</h3>
+                <a [routerLink]="['/movie', 'details', movie._id]">
+                    <img style="height: 200px; width: 100%; display: block;" [src]="movie.imageUrl" alt="Card image">
                 </a>
-            </div>
-            <div class="card-footer text-muted">
-                {{movie._kmd.lmt | date: 'dd-MMM-yyyy'}}
+                <div class="card-body">
+                    <p class="card-text">{{movie.description}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Release Year: {{movie.year}}</li>
+                </ul>
+                <div class="card-body">
+                    <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
+                        <button class="btn btn-primary">Details</button>
+                    </a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{movie._kmd.lmt | date: 'dd-MMM-yyyy'}}
+                </div>
             </div>
         </div>
     </div>
