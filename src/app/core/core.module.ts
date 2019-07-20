@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HomeComponent } from './components/home/home.component';
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
+import { NotificationInterceptorService } from './interceptors/notification-interceptor.service';
 
 
 @NgModule({
@@ -15,6 +16,11 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NotificationInterceptorService,
       multi: true
     }
   ],

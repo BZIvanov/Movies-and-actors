@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpEvent
 } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import constants from '../../shared/constants';
 import { UserAuthService } from '../services/user-auth.service';
+
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
 
   constructor(private userService: UserAuthService) { }
 
-  
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.endsWith(`/user/${constants.kinveyAppKey}/`) || req.url.endsWith('/login')) {
       req = req.clone({
         setHeaders: {

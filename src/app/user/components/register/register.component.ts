@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       }
 
       this.registerStream$ = this.userService.registerUser(userObject).subscribe(response => {
-        console.log(response)
         this.router.navigate(['/user', 'login']);
       });
     }

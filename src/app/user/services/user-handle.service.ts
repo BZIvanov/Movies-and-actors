@@ -16,4 +16,8 @@ export class UserHandleService {
   loginUser (data: any) {
     return this.http.post<any>(constants.baseUrl + "user/" + constants.kinveyAppKey + "/login", data);
   }
+
+  logoutUser() {
+    return this.http.post<any>(`${constants.baseUrl}user/${constants.kinveyAppKey}/_logout`, {});
+  }
 }
