@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 import { UserHandleService } from '../../services/user-handle.service';
-import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 
 @Component({
   selector: 'app-register',
@@ -13,17 +13,23 @@ import { UserAuthService } from 'src/app/shared/services/user-auth.service';
 export class RegisterComponent implements OnInit, OnDestroy {
   private registerStream$: Subscription;
 
-  constructor(private userService: UserHandleService, private router: Router,
-    private userAuth: UserAuthService) { }
+  constructor(private userService: UserHandleService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  register(data: any) {
-    this.registerStream$ = this.userService.registerUser(data).subscribe(response => {
-      //Sthis.userAuth.saveUserData(response);
-      this.router.navigate(['/user', 'login']);
-    });
+  register(data: any, form: NgForm) {
+    if (!form.invalid && (data.passwords.password === data.passwords.repeatPassword)) {
+      let userObject = {
+        username: data.username,
+        email: data.email,
+        password: data.passwords.password
+      }
+
+      this.registerStream$ = this.userService.registerUser(userObject).subscribe(response => {
+        this.router.navigate(['/user', 'login']);
+      });
+    }
   }
 
   ngOnDestroy() {
