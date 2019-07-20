@@ -1,4 +1,4 @@
-<div class="card mb-3 text-center">
+<!-- <div class="card mb-3 text-center">
     <h3 class="card-header">{{movie.title}}</h3>
     <a [routerLink]="['/movie', 'details', _id]">
         <img style="height: 200px; width: 100%; display: block;" [src]="movie.imageUrl" alt="Card image">
@@ -17,8 +17,21 @@
     <div class="card-footer text-muted">
         {{movie._kmd.lmt | date: 'dd-MMM-yyyy'}}
     </div>
+</div> -->
+
+
+<div class="d-flex justify-content-center">
+    <div class="">
+        <img style="height: 400px" [src]="movie.imageUrl" alt="Card image">
+    </div>
+    <div class="card">
+        <div class="col">
+            <div class="card-block px-2">
+                <p class="card-title">{{movie.title}} <span>({{movie.year}})</span></p>
+                <p class="card-text">{{movie.description}}</p>
+                <a [routerLink]="['/movie', 'all']" class="btn btn-primary">Back to Movies</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    
-</div>

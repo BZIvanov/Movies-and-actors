@@ -1,14 +1,12 @@
-.card:hover {
-    border: 1px solid darkgray;
+.card-title {
+    font-size: 36px;
+    font-weight: bold;
+    span {
+        font-size: 28px;
+        font-weight: normal;
+    }
 }
 
 img {
-    border: 5px solid lightgray;
-    outline: 5px dotted white;
-	outline-offset: -5px;
-}
-
-img:hover {
-    border: 5px solid white;
-    outline: 5px dotted lightgray;
+    max-width: 300px;
 }
