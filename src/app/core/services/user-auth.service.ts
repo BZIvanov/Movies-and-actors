@@ -16,4 +16,8 @@ export class UserAuthService {
   isLoggedIn(): boolean {
     return localStorage.getItem('authtoken') !== null;
   }
+
+  get token(): string | null {
+    return localStorage.getItem('authtoken');
+  }
 }
