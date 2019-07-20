@@ -19,7 +19,6 @@ export class AuthorizationInterceptorService implements HttpInterceptor {
     if (request instanceof HttpRequest) {
       request = request.clone({
         setHeaders: {
-          //Authorization: `'Kinvey ${localStorage.getItem('authtoken')}`
           Authorization: `Basic ${btoa(constants.kinveyAppKey + ':' + constants.kinveyAppSecret)}`
         }
       });

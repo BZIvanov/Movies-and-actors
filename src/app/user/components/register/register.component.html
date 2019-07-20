@@ -3,28 +3,58 @@
         <div class="col-lg-4 col-md-4 col-sm-3"></div>
         <div class="col-lg-4 col-md-4 col-sm-6">
             <h1>Register Form</h1>
-            <form #myForm="ngForm" (ngSubmit)="register(myForm.value)">
+            <form #myForm="ngForm" (ngSubmit)="register(myForm.value, myForm)">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input type="text" name="username" class="form-control" placeholder="Your username" required ngModel >
+                    <input type="text" name="username" class="form-control" placeholder="Your username" required minlength="3" maxlength="25" ngModel >
                 </div>
-
+                <div class="alert alert-danger" *ngIf="myForm?.controls.username?.errors?.required && (myForm?.controls.username?.touched || myForm?.submitted)">
+                    Username is required!
+                </div>
+                <div class="alert alert-danger" *ngIf="myForm?.controls.username?.errors?.minlength  && (myForm?.controls.username?.touched || myForm?.submitted)">
+                    Username should be 3-25 chars long. You provided {{myForm.controls.username.errors.minlength.actualLength}}
+                </div>
+                
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input type="text" name="email" class="form-control" placeholder="Your email" required ngModel >
+                    <input type="text" name="email" pattern="^[^@]+@[^@]+\.[^@]+$" maxlength="30" class="form-control" placeholder="Your email" required ngModel >
+                </div>
+                <div class="alert alert-danger" *ngIf="myForm?.controls.email?.errors?.required && (myForm?.controls.email?.touched || myForm?.submitted)">
+                    Email is required!
+                </div>
+                <div class="alert alert-danger" *ngIf="myForm?.controls.email?.errors?.pattern && (myForm?.controls.email?.touched || myForm?.submitted)">
+                    Please provide valid e-mail!
                 </div>
 
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fas fa-paper-plane"></i> </span>
+                <div ngModelGroup="passwords">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+                        </div>
+                        <input type="password" name="password" maxlength="30" class="form-control" placeholder="Your password" required ngModel >
                     </div>
-                    <input type="password" name="password" class="form-control" placeholder="Your password" required ngModel >
+                    <div class="alert alert-danger" *ngIf="myForm?.controls.passwords?.controls.password?.errors?.required && (myForm?.controls.passwords?.controls.password?.touched || myForm?.submitted)">
+                        Password is required!
+                    </div>
+    
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+                        </div>
+                        <input type="password" name="repeatPassword" maxlength="30" class="form-control" placeholder="Repeat password" required ngModel >
+                    </div>
+                    <div class="alert alert-danger" *ngIf="myForm?.controls.passwords?.controls.repeatPassword?.errors?.required && (myForm?.controls.passwords?.controls.repeatPassword?.touched || myForm?.submitted)">
+                        Repeat password is required!
+                    </div>
+                    <div class="alert alert-danger" *ngIf="myForm?.controls.passwords?.controls.password?.value !== myForm?.controls.passwords?.controls.repeatPassword?.value && myForm?.controls.passwords?.controls.password?.touched && myForm?.controls.passwords?.controls.repeatPassword?.touched" >
+                        Passwords do not match!
+                    </div>
                 </div>
-
+                
                 <div class="form-group">
                     <button class="btn btn-primary btn-block">Register</button>
                 </div>

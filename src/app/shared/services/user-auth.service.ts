@@ -10,6 +10,7 @@ export class UserAuthService {
   saveUserData(userData: any) {
     localStorage.setItem("username", userData.username);
     localStorage.setItem("authtoken", userData._kmd.authtoken);
+    localStorage.setItem("userID", userData._id);
   }
 
   isLoggedIn(): boolean {
