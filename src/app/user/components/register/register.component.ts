@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       }
 
       this.registerStream$ = this.userService.registerUser(userObject).subscribe(response => {
+        console.log(response)
         this.router.navigate(['/user', 'login']);
       });
     }

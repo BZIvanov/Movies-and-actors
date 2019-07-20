@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
 import { UserHandleService } from '../../services/user-handle.service';
-import { UserAuthService } from 'src/app/shared/services/user-auth.service';
+import { UserAuthService } from 'src/app/core/services/user-auth.service';
 
 @Component({
   selector: 'app-login',

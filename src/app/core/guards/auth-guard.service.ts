@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import {Observable} from 'rxjs';
 
-import { UserAuthService } from './user-auth.service';
+import { UserAuthService } from '../services/user-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.userService.isLoggedIn()) {
-      console.log("here")
       return true;
     }
 
