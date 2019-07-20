@@ -8,13 +8,13 @@ import {
 import { Observable } from 'rxjs';
 
 import constants from '../../shared/constants';
-import { UserAuthService } from '../services/user-auth.service';
+import { SessionService } from '../services/session.service';
 
 
 @Injectable()
 export class TokenInterceptorService implements HttpInterceptor {
 
-  constructor(private userService: UserAuthService) { }
+  constructor(private userService: SessionService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (req.url.endsWith(`/user/${constants.kinveyAppKey}/`) || req.url.endsWith('/login')) {

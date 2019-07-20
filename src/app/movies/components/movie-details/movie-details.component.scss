@@ -1,0 +1,14 @@
+.card:hover {
+    border: 1px solid darkgray;
+}
+
+img {
+    border: 5px solid lightgray;
+    outline: 5px dotted white;
+	outline-offset: -5px;
+}
+
+img:hover {
+    border: 5px solid white;
+    outline: 5px dotted lightgray;
+}

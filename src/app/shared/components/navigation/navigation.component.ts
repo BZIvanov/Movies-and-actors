@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserAuthService } from '../../../core/services/user-auth.service';
+import { SessionService } from '../../../core/services/session.service';
 import { UserHandleService } from '../../../user/services/user-handle.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserHandleService } from '../../../user/services/user-handle.service';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private userService: UserAuthService, private userHandle: UserHandleService) { }
+  constructor(private userService: SessionService, private userHandle: UserHandleService) { }
   username: string = localStorage.getItem("username");
 
   ngOnInit() {
