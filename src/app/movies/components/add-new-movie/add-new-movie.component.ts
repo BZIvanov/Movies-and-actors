@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { MoviesHandlerService } from '../../services/movies-handler.service';
+import { Movie } from '../../../core/interfaces';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AddNewMovieComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
-  addMovie(formData: Object) {
+  addMovie(formData: Movie) {
     this.moviesStream$ = this.moviesService.addNewMovie(formData).subscribe(movies => {
       this.router.navigate(['movie', 'all']);
     })

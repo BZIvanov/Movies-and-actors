@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { NgForm } from '@angular/forms';
 
 import { UserHandleService } from '../../services/user-handle.service';
-import { UserAuthService } from 'src/app/core/services/user-auth.service';
+import { SessionService } from 'src/app/core/services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ import { UserAuthService } from 'src/app/core/services/user-auth.service';
 export class LoginComponent implements OnInit, OnDestroy {
   private loginStream$: Subscription;
 
-  constructor(private userService: UserHandleService, private router: Router, private userAuth: UserAuthService) { }
+  constructor(private userService: UserHandleService, private router: Router, private userAuth: SessionService) { }
 
   ngOnInit() {
   }
