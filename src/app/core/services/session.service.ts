@@ -20,4 +20,8 @@ export class SessionService {
   get token(): string | null {
     return localStorage.getItem('authtoken');
   }
+
+  get userID(): string | null {
+    return localStorage.getItem('userID');
+  }
 }

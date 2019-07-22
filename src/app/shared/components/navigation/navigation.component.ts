@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { SessionService } from '../../../core/services/session.service';
 import { UserHandleService } from '../../../user/services/user-handle.service';
@@ -8,12 +8,16 @@ import { UserHandleService } from '../../../user/services/user-handle.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, DoCheck {
 
   constructor(private userService: SessionService, private userHandle: UserHandleService) { }
   username: string = localStorage.getItem("username");
 
   ngOnInit() {
+  }
+
+  ngDoCheck() {
+    this.username = localStorage.getItem("username");
   }
 
   logoutUser() {
