@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MoviesHandlerService } from '../../services/movies-handler.service';
 import { Movie } from '../../../core/interfaces';
@@ -12,17 +13,30 @@ import { Movie } from '../../../core/interfaces';
   styleUrls: ['./add-new-movie.component.scss']
 })
 export class AddNewMovieComponent implements OnInit, OnDestroy {
-  private moviesStream$: Subscription
+  private moviesStream$: Subscription;
+  form: FormGroup;
 
-  constructor(private moviesService: MoviesHandlerService, private router: Router) { }
+  constructor(private fb: FormBuilder, private moviesService: MoviesHandlerService, private router: Router) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30), Validators.pattern('[A-Za-z0-9 ]+')]],
+      year: ['', [Validators.required, Validators.min(1970), Validators.max(2019)]],
+      imageUrl: ['', [Validators.required, Validators.maxLength(50)]],
+      description: ['', [Validators.required, Validators.minLength(30), Validators.maxLength(500)]],
+    });
   }
 
-  addMovie(formData: Movie) {
-    this.moviesStream$ = this.moviesService.addNewMovie(formData).subscribe(movies => {
-      this.router.navigate(['movie', 'all']);
-    })
+  addMovie() {
+    if (!this.form.invalid) {
+      this.moviesStream$ = this.moviesService.addNewMovie(this.form.value).subscribe(movie => {
+        this.router.navigate(['movie', 'all']);
+      });
+    }
+  }
+
+  get f(): any {
+    return this.form.controls;
   }
 
   ngOnDestroy() {

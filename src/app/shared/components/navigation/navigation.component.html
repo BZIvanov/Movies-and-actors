@@ -15,7 +15,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" routerLink="movie/all">All Movies</a>
-                <a class="dropdown-item" routerLink="movie/all">My Movies</a>
+                <a class="dropdown-item" routerLink="movie/my-movies">My Movies</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" routerLink="movie/add">Add new Movie</a>
                 </div>
@@ -41,10 +41,6 @@
             </ng-template>
             <ng-container *ngIf="hasUser() then present; else notPresent"></ng-container>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
     </div>
 </nav>
 

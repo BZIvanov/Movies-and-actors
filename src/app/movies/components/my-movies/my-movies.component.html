@@ -1,7 +1,7 @@
 <div class="container owner">
     <div class="row">
         <div class="col-md-12 text-center mt-3">
-            <h3>Movie List</h3>
+            <h3>My movies List</h3>
         </div>
     </div>
 
@@ -20,7 +20,10 @@
                 </ul>
                 <div class="card-body">
                     <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
-                        <button class="btn btn-primary">Details</button>
+                        <button class="btn btn-warning">Edit</button>
+                    </a>
+                    <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
+                        <button class="btn btn-danger">Delete</button>
                     </a>
                 </div>
                 <div class="card-footer text-muted">
