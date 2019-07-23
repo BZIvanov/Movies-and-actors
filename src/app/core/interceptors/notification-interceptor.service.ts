@@ -20,7 +20,12 @@ export class NotificationInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(tap((res) => {
       if (res instanceof HttpResponse) {
         if (res['statusText'] && res['statusText'] === "Created") {
-          this.toastr.success("Successfully registered!");
+          // Created is retured on user and movie creation so we further check
+          if (res['body']['title']) {
+            this.toastr.success("Successfully added new movie");
+          } else {
+            this.toastr.success("Successfully registered!");
+          }
         } else if (res.url.endsWith('/login')) {
           this.toastr.success("Successfully logged in!");
         } else if (res.url.endsWith('/_logout')) {

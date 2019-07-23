@@ -8,6 +8,7 @@
             <div class="col">
                 <div class="card-block px-2">
                     <p class="card-title">{{movie.title}} <span>({{movie.year}})</span></p>
+                    <h5>Overview:</h5>
                     <p class="card-text">{{movie.description}}</p>
                     <a [routerLink]="['/movie', 'all']" class="btn btn-primary">Back to Movies</a>
                 </div>
