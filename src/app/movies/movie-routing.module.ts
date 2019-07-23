@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddNewMovieComponent } from './components/add-new-movie/add-new-movie.component';
 import { AllMoviesComponent } from './components/all-movies/all-movies.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 import { MovieDetailsResolverService } from './services/movie-details-resolver.service';
+import { MovieFormComponent } from './components/movie-form/movie-form.component';
 
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'all', component: AllMoviesComponent},
     { path: 'my-movies', component: MyMoviesComponent},
-    { path: 'add', component: AddNewMovieComponent},
+    { path: 'add', component: MovieFormComponent},
+    { path: 'edit/:id', component: MovieFormComponent},
     { path: 'details/:id', component: MovieDetailsComponent, resolve: { targetMovie: MovieDetailsResolverService } }
 ];
 

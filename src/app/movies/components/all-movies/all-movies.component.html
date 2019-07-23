@@ -1,19 +1,21 @@
 <div class="container owner">
     <div class="row">
         <div class="col-md-12 text-center mt-3">
-            <h3>Movie List</h3>
+            <h2>Movie List</h2>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 mt-3 mb-3" *ngFor="let movie of movies$ | async">
             <div class="card text-center">
-                <h3 class="card-header">{{movie.title}}</h3>
+                <div class="card-header">
+                    <h4>{{movie.title}}</h4>
+                </div>
                 <a [routerLink]="['/movie', 'details', movie._id]">
-                    <img style="height: 200px; width: 100%; display: block;" [src]="movie.imageUrl" alt="Incorrect image URL">
+                    <img style="height: 400px; width: 100%; display: block;" [src]="movie.imageUrl" alt="Incorrect image URL">
                 </a>
                 <div class="card-body">
-                    <p class="card-text">{{movie.description}}</p>
+                    <p class="card-text">{{movie.description | slice:0:100}}. . .</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Release Year: {{movie.year}}</li>
