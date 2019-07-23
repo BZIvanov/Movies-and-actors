@@ -22,7 +22,7 @@
                     <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
                         <button class="btn btn-warning">Edit</button>
                     </a>
-                    <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
+                    <a (click)=deleteItem(movie._id) class="card-link">
                         <button class="btn btn-danger">Delete</button>
                     </a>
                 </div>
