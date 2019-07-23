@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { NgForm, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MoviesHandlerService } from '../../services/movies-handler.service';
-import { Movie } from '../../../core/interfaces';
 
 
 @Component({
@@ -30,7 +29,7 @@ export class AddNewMovieComponent implements OnInit, OnDestroy {
   addMovie() {
     if (!this.form.invalid) {
       this.moviesStream$ = this.moviesService.addNewMovie(this.form.value).subscribe(movie => {
-        this.router.navigate(['movie', 'all']);
+        this.router.navigate(['movie', 'my-movies']);
       });
     }
   }
