@@ -21,7 +21,7 @@ export class AddNewMovieComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30), Validators.pattern('[A-Za-z0-9 ]+')]],
       year: ['', [Validators.required, Validators.min(1970), Validators.max(2019)]],
-      imageUrl: ['', [Validators.required, Validators.maxLength(50)]],
+      imageUrl: ['', [Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(30), Validators.maxLength(500)]],
     });
   }
