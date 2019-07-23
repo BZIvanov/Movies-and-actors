@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddNewMovieComponent } from './add-new-movie.component';
+import { AddNewMovieComponent } from './movie-form.component';
 
 describe('AddNewMovieComponent', () => {
   let component: AddNewMovieComponent;

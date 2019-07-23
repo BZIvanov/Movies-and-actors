@@ -16,10 +16,10 @@
                         Title is required!
                     </div>
                     <div class="text-danger" *ngIf="f.title?.errors?.pattern && f.title?.touched">
-                        The title should contain only alphanumeric symbols or whitespaces!
+                        The title should contain only alphanumeric symbols or whitespaces and dots!
                     </div>
                     <div class="text-danger" *ngIf="(f.title?.errors?.minlength || f.title?.errors?.maxlength) && f.title?.touched">
-                        The title should be between 3-30 characters!
+                        The title should be between 3-40 characters!
                     </div>
     
                     <div class="form-group input-group">
@@ -49,7 +49,7 @@
                         Image URL of the movie is required!
                     </div>
                     <div class="text-danger" *ngIf="f.imageUrl?.errors?.maxlength && f.imageUrl?.touched">
-                        The image URL should be of max 100 characters!
+                        The image URL should be of max 180 characters!
                     </div>
 
                     <div class="form-group input-group">
@@ -68,7 +68,7 @@
                     </div>
     
                     <div class="form-group">
-                        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">Add new movie</button>
+                        <button type="submit" [disabled]="form.invalid" class="btn btn-primary btn-block">{{mode}}</button>
                     </div>
     
                     <!-- <pre>{{ myForm.value | json }}</pre> -->

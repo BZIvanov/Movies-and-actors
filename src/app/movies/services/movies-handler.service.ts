@@ -35,6 +35,10 @@ export class MoviesHandlerService {
     return this.http.get<Movie>(constants.baseUrl + "appdata/" + constants.kinveyAppKey + "/movies/" + id);
   }
 
+  editMovie(formData: any, id: string) {
+    return this.http.put(constants.baseUrl + "appdata/" + constants.kinveyAppKey + "/movies/" + id, formData);
+  }
+
   deleteMovie(id: string) {
     return this.http.delete(constants.baseUrl + "appdata/" + constants.kinveyAppKey + "/movies/" + id);
   }
