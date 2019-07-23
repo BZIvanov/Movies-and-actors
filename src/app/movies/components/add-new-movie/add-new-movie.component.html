@@ -9,15 +9,16 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-file-word-o"></i> </span>
                         </div>
-                        <input type="text" formControlName="title" class="form-control" placeholder="Title">
+                        <input type="text" formControlName="title" placeholder="Title"
+                        [ngClass]="{ 'form-control': true,  'is-valid': !f.title?.errors, 'is-invalid': f.title?.errors && f.title?.touched }">
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.title?.errors?.required && f.title?.touched">
+                    <div class="text-danger" *ngIf="f.title?.errors?.required && f.title?.touched">
                         Title is required!
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.title?.errors?.pattern && f.title?.touched">
+                    <div class="text-danger" *ngIf="f.title?.errors?.pattern && f.title?.touched">
                         The title should contain only alphanumeric symbols or whitespaces!
                     </div>
-                    <div class="alert alert-danger" *ngIf="(f.title?.errors?.minlength || f.title?.errors?.maxlength) && f.title?.touched">
+                    <div class="text-danger" *ngIf="(f.title?.errors?.minlength || f.title?.errors?.maxlength) && f.title?.touched">
                         The title should be between 3-30 characters!
                     </div>
     
@@ -26,12 +27,13 @@
                             <span class="input-group-text"> <i class="fa fa-calendar-check-o"></i> </span>
                         </div>
                         <!-- min and max attributes here are in case the user clicks the arrows on the input to get directly the year range -->
-                        <input type="number" formControlName="year" min="1970" max="2019" class="form-control" placeholder="Year">
+                        <input type="number" formControlName="year" min="1970" max="2019" placeholder="Year"
+                        [ngClass]="{ 'form-control': true,  'is-valid': !f.year?.errors, 'is-invalid': f.year?.errors && f.year?.touched }">
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.year?.errors?.required && f.year?.touched">
+                    <div class="text-danger" *ngIf="f.year?.errors?.required && f.year?.touched">
                         Year of the movie is required!
                     </div>
-                    <div class="alert alert-danger" *ngIf="(f.year?.errors?.min || f.year?.errors?.max) && f.year?.touched">
+                    <div class="text-danger" *ngIf="(f.year?.errors?.min || f.year?.errors?.max) && f.year?.touched">
                         Year of the movie should be between 1970-2019
                     </div>
                     
@@ -40,12 +42,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-picture-o"></i> </span>
                         </div>
-                        <input type="text" formControlName="imageUrl" class="form-control" placeholder="image URL">
+                        <input type="text" formControlName="imageUrl" placeholder="image URL"
+                        [ngClass]="{ 'form-control': true,  'is-valid': !f.imageUrl?.errors, 'is-invalid': f.imageUrl?.errors && f.imageUrl?.touched }">
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.imageUrl?.errors?.required && f.imageUrl?.touched">
+                    <div class="text-danger" *ngIf="f.imageUrl?.errors?.required && f.imageUrl?.touched">
                         Image URL of the movie is required!
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.imageUrl?.errors?.maxlength && f.imageUrl?.touched">
+                    <div class="text-danger" *ngIf="f.imageUrl?.errors?.maxlength && f.imageUrl?.touched">
                         The image URL should be of max 50 characters!
                     </div>
 
@@ -53,12 +56,14 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-align-left"></i> </span>
                         </div>
-                        <textarea formControlName="description" class="form-control" cols="30" rows="5" placeholder="Description"></textarea>
+                        <textarea formControlName="description" cols="30" rows="5" placeholder="Description"
+                            [ngClass]="{ 'form-control': true,  'is-valid': !f.description?.errors, 'is-invalid': f.description?.errors && f.description?.touched }" >
+                        </textarea>
                     </div>
-                    <div class="alert alert-danger" *ngIf="f.description?.errors?.required && f.description?.touched">
+                    <div class="text-danger" *ngIf="f.description?.errors?.required && f.description?.touched">
                         Description is required!
                     </div>
-                    <div class="alert alert-danger" *ngIf="(f.description?.errors?.minlength || f.description?.errors?.maxlength) && f.description?.touched">
+                    <div class="text-danger" *ngIf="(f.description?.errors?.minlength || f.description?.errors?.maxlength) && f.description?.touched">
                         The title should be between 30-500 characters!
                     </div>
     

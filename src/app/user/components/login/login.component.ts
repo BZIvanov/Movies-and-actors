@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       };
       this.loginStream$ = this.userService.loginUser(userData).subscribe(response => {
         this.userAuth.saveUserData(response);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/movie', 'all']);
       });
     }
   }
