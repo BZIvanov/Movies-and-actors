@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { MoviesModule } from './movies/movies.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
