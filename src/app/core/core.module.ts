@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HomeComponent } from './components/home/home.component';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -14,7 +13,6 @@ import { LoadingInterceptorService } from './interceptors/loading-interceptor.se
   declarations: [HomeComponent, LoadingComponent],
   imports: [
     CommonModule,
-    MatProgressSpinnerModule
   ],
   providers: [
     {

@@ -3,5 +3,5 @@ export interface Movie {
     year: number;
     imageUrl: string;
     description: string;
-    _acl: Object
+    _acl?: Object
 }

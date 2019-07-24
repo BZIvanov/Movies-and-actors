@@ -5,11 +5,13 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
     NavigationComponent,
     FooterComponent,
+    ScrollTopComponent,
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   exports: [
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    ScrollTopComponent
   ]
 })
 export class SharedModule { }
