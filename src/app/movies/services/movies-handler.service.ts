@@ -63,7 +63,7 @@ export class MoviesHandlerService {
             if (order === "ascending") {
               return +a['year'] - +b['year'];
             } else {
-                return +b['year'] - +a['year'];
+              return +b['year'] - +a['year'];
             }
           })
           return x;

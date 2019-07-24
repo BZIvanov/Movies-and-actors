@@ -13,7 +13,12 @@ import { DeactivateFormService } from './services/deactivate-form.service';
 
 
 @NgModule({
-  declarations: [MovieFormComponent, AllMoviesComponent, MovieDetailsComponent, MyMoviesComponent],
+  declarations: [
+    MovieFormComponent,
+    AllMoviesComponent,
+    MovieDetailsComponent,
+    MyMoviesComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
