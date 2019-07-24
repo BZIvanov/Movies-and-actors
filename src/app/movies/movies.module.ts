@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MovieRoutingModule } from './movie-routing.module';
 import { MoviesHandlerService } from './services/movies-handler.service';
@@ -9,6 +9,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { MovieDetailsResolverService } from './services/movie-details-resolver.service';
 import { MyMoviesComponent } from './components/my-movies/my-movies.component';
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
+import { DeactivateFormService } from './services/deactivate-form.service';
 
 
 @NgModule({
@@ -16,11 +17,13 @@ import { MovieFormComponent } from './components/movie-form/movie-form.component
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     MovieRoutingModule
   ],
   providers: [
     MoviesHandlerService,
-    MovieDetailsResolverService
+    MovieDetailsResolverService,
+    DeactivateFormService
   ]
 })
 export class MoviesModule { }
