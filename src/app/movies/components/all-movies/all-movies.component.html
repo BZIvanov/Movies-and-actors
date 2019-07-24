@@ -2,6 +2,24 @@
     <div class="row">
         <div class="col-md-12 text-center mt-3">
             <h2>Movie List</h2>
+            <div class="d-flex justify-content-center">
+                <div class="mr-sm-5">
+                    <form #searchForm="ngForm" (ngSubmit)="searchForMovie(searchForm.value)" class="form-inline">
+                        <input class="form-control mr-sm-2" type="text" name="search" maxlength="25" placeholder="Search by title" ngModel>
+                        <button class="btn btn-secondary">Search</button>
+                    </form>
+                </div>
+                <div>
+                    <form #sortForm="ngForm" (ngSubmit)="sortMovie(sortForm.value)" class="form-inline" >
+                        <select class="form-control mr-sm-2" type="text" name="sort" ngModel>
+                            <option disabled>Sort by year</option>
+                            <option value="ascending">Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                        <button class="btn btn-secondary">Sort</button>
+                    </form>
+                </div>
+            </div>
             <hr>
         </div>
     </div>
@@ -23,7 +41,7 @@
                 </ul>
                 <div class="card-body p-2">
                     <a [routerLink]="['/movie', 'details', movie._id]" class="card-link">
-                        <button class="btn btn-primary">Details</button>
+                        <button class="btn btn-info">Details</button>
                     </a>
                 </div>
                 <div class="card-footer text-muted">

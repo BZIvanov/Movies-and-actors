@@ -17,4 +17,14 @@ export class AllMoviesComponent implements OnInit {
   ngOnInit() {
     this.movies$ = this.movieService.getAllMovies();
   }
+
+  searchForMovie(queryObject: { search: string }) {
+    this.movies$ = this.movieService.searchMovie(queryObject.search);
+  }
+
+  sortMovie(queryObject: { sort: string }) {
+    if (queryObject.sort) {
+      this.movies$ = this.movieService.sortMoviesByYear(queryObject.sort);
+    }
+  }
 }
