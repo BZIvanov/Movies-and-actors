@@ -16,6 +16,9 @@ export class DeactivateFormService implements CanDeactivate<MovieFormComponent> 
       if (component.mode === "Add New Movie") {
         return true
       }
+      if (!component.form.invalid) {
+        return true
+      }
       
       let drop = confirm("Are you sure you want to leave the form page?");
       if (drop) {

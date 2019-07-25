@@ -4,7 +4,7 @@
             <h2>Movie List</h2>
             <div class="d-flex justify-content-center">
                 <div class="mr-sm-5">
-                    <form #searchForm="ngForm" (ngSubmit)="searchForMovie(searchForm.value); searchForm.reset();" class="form-inline">
+                    <form #searchForm="ngForm" (ngSubmit)="searchForMovie(searchForm.value)" class="form-inline">
                         <input class="form-control mr-sm-2" type="text" name="search" maxlength="25" placeholder="Search by title" ngModel>
                         <button class="btn btn-secondary">Search</button>
                     </form>
