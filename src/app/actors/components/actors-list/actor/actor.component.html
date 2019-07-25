@@ -1,0 +1,19 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h4>{{actor.fullName}}</h4>
+    </div>
+    <a [routerLink]="['/actor', 'details', actor._id]">
+        <img style="height: 350px; width: 100%; display: block;" [src]="actor.imageUrl" alt="Incorrect image URL">
+    </a>
+    <div class="card-body p-2">
+        <p class="card-text">{{actor.biography | slice:0:100}}. . .</p>
+    </div>
+    <div class="card-body p-2">
+        <p class="card-text gender">Gender: {{actor.gender}}</p>
+    </div>
+    <div class="card-body p-2">
+        <a [routerLink]="['/actor', 'details', actor._id]" class="card-link">
+            <button class="btn btn-info">Details</button>
+        </a>
+    </div>
+</div>

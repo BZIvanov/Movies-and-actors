@@ -11,9 +11,9 @@ import { DeactivateFormService } from './services/deactivate-form.service';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'all', component: AllMoviesComponent},
-    { path: 'my-movies', component: MyMoviesComponent},
-    { path: 'add', component: MovieFormComponent, canDeactivate:[DeactivateFormService]},
+    { path: 'all', component: AllMoviesComponent },
+    { path: 'my-movies', component: MyMoviesComponent },
+    { path: 'add', component: MovieFormComponent },
     { path: 'edit/:id', component: MovieFormComponent, canDeactivate:[DeactivateFormService]},
     { path: 'details/:id', component: MovieDetailsComponent, resolve: { targetMovie: MovieDetailsResolverService } }
 ];
