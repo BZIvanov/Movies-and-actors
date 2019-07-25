@@ -16,6 +16,12 @@ export class ActorsListComponent implements OnInit {
   ngOnInit() {
     this.actorsService.getAllActors().subscribe(response => {
       this.actors = response;
-    })
+    });
+  }
+
+  onSearch(targetName: string) {
+    this.actorsService.searchForActor(targetName).subscribe(response => {
+      this.actors = response;
+    });
   }
 }

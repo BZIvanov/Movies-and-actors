@@ -8,7 +8,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input type="text" name="fullName" placeholder="Full name" required minlength="3" maxlength="25" ngModel
+                    <input type="text" name="fullName" placeholder="Full name" required minlength="3" maxlength="25" [(ngModel)]="formData.fullName"
                     [ngClass]="{ 'form-control': true,  'is-valid': !myForm.controls.fullName?.errors, 'is-invalid': myForm.controls.fullName?.errors && myForm?.controls.fullName?.touched }">
                 </div>
                 <div class="text-danger" *ngIf="myForm?.controls.fullName?.errors?.required && (myForm?.controls.fullName?.touched || myForm?.submitted)">
@@ -22,7 +22,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-venus-mars"></i> </span>
                     </div>
-                    <select class="form-control" type="text" name="gender" required ngModel
+                    <select class="form-control" type="text" name="gender" required [(ngModel)]="formData.gender"
                     [ngClass]="{ 'form-control': true,  'is-valid': !myForm.controls.gender?.errors, 'is-invalid': myForm.controls.gender?.errors && myForm?.controls.gender?.touched }">
                         <option disabled>Choose gender</option>
                         <option value="male">Male</option>
@@ -37,7 +37,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-id-card-o"></i> </span>
                     </div>
-                    <textarea name="biography" cols="30" rows="5"  minlength="30"  maxlength="500" placeholder="Short biography" required ngModel 
+                    <textarea name="biography" cols="30" rows="5"  minlength="30"  maxlength="500" placeholder="Short biography" required [(ngModel)]="formData.biography"
                     [ngClass]="{ 'form-control': true,  'is-valid': !myForm.controls.biography?.errors, 'is-invalid': myForm.controls.biography?.errors && myForm?.controls.biography?.touched }">
                     </textarea>
                 </div>
@@ -52,7 +52,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-picture-o"></i> </span>
                     </div>
-                    <input type="text" name="imageUrl" maxlength="180" placeholder="image URL" required ngModel
+                    <input type="text" name="imageUrl" maxlength="180" placeholder="image URL" required [(ngModel)]="formData.imageUrl"
                     [ngClass]="{ 'form-control': true,  'is-valid': !myForm.controls.imageUrl?.errors, 'is-invalid': myForm.controls.imageUrl?.errors && myForm?.controls.imageUrl?.touched }">
                 </div>
                 <div class="text-danger" *ngIf="myForm?.controls.imageUrl?.errors?.required && (myForm?.controls.imageUrl?.touched || myForm?.submitted)">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block">Add new actor</button>
+                    <button class="btn btn-primary btn-block">{{mode}}</button>
                 </div>
 
                 <!-- <pre>{{ myForm.value | json }}</pre> -->
