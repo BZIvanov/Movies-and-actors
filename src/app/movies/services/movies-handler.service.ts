@@ -48,6 +48,9 @@ export class MoviesHandlerService {
       .pipe(
         map(x => {
           x = x.filter(y => {
+            if (title === '') {
+              return true;
+            }
             return y['title'].toLocaleLowerCase().includes(title.toLowerCase());
           })
           return x;
