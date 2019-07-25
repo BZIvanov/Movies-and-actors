@@ -10,7 +10,18 @@
                     <p class="card-title">{{actor.fullName}}</p>
                     <h5>Biography:</h5>
                     <p class="card-text">{{actor.biography}}</p>
-                    <a [routerLink]="['/actor', 'all']" class="btn btn-info mb-2">Back to Actors</a>
+                    <a [routerLink]="['/actor', 'all']" >
+                        <button class="btn btn-info mb-2">Back to Actors</button>
+                    </a>
+                    <a *ngIf="actor.owner" 
+                        [routerLink]="['/actor', 'edit', actor._id]"
+                        [queryParams]="{ id: actor._id, fullName: actor.fullName, biography: actor.biography, gender: actor.gender, imageUrl: actor.imageUrl }"
+                    >
+                        <button class="btn btn-warning mb-2 ml-2">Edit</button>
+                    </a>
+                    <a *ngIf="actor.owner" (click)="deleteActor(actor._id)" >
+                        <button class="btn btn-danger mb-2 ml-2">Delete</button>
+                    </a>
                 </div>
             </div>
         </div>

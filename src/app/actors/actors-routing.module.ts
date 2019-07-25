@@ -8,8 +8,9 @@ import { ActorDetailsComponent } from './components/actor-details/actor-details.
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'all', component: ActorsListComponent},
-    { path: 'add', component: ActorsFormComponent},
+    { path: 'all', component: ActorsListComponent },
+    { path: 'add', component: ActorsFormComponent },
+    { path: 'edit/:id', component: ActorsFormComponent },
     { path: 'details/:id', component: ActorDetailsComponent }
 ];
 

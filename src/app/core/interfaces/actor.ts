@@ -4,5 +4,6 @@ export interface Actor {
     imageUrl: string;
     biography: string;
     gender: string;
-    _acl?: { creator: string };
+    _acl: { creator: string };
+    owner?: boolean;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-actors-search',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actors-search.component.scss']
 })
 export class ActorsSearchComponent implements OnInit {
+  @Output() searchedName = new EventEmitter<string>();
 
   constructor() { }
 
@@ -13,6 +14,6 @@ export class ActorsSearchComponent implements OnInit {
   }
 
   searchForActor(target: { search: string }) {
-    console.log(target.search);
+    this.searchedName.emit(target.search);
   }
 }

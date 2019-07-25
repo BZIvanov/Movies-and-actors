@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Actor } from 'src/app/core/interfaces';
-import { ActivatedRoute } from '@angular/router';
 import { ActorsHandlerService } from '../../services/actors-handler.service';
+
 
 @Component({
   selector: 'app-actor-details',
@@ -12,7 +14,8 @@ import { ActorsHandlerService } from '../../services/actors-handler.service';
 export class ActorDetailsComponent implements OnInit {
   actor: Actor
 
-  constructor(private route: ActivatedRoute, private actorService: ActorsHandlerService) { }
+  constructor(private route: ActivatedRoute, private actorService: ActorsHandlerService, 
+    private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
@@ -21,4 +24,13 @@ export class ActorDetailsComponent implements OnInit {
     });
   }
 
+  deleteActor(id: string) {
+    let agreed = confirm("Are you sure you want to delete this actor?");
+    if (agreed) {
+      this.actorService.deleteActor(id).subscribe(data => {
+        this.toastr.info("Successfully deleted actor", "Deleted!")
+        this.router.navigate(['/actor', 'all']);
+      })
+    }
+  }
 }
