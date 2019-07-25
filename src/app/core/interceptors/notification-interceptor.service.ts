@@ -23,6 +23,8 @@ export class NotificationInterceptorService implements HttpInterceptor {
           // Created is retured on user and movie creation so we further check
           if (res['body']['title']) {
             this.toastr.success("Successfully added new movie");
+          } else if (res['body']['fullName']) {
+            this.toastr.success("Successfully added new actor");
           } else {
             this.toastr.success("Successfully registered!");
           }
