@@ -1,30 +1,37 @@
 <div class="row" *ngIf="actor">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8 d-flex justify-content-center">
-        <div class="align-self-center">
-            <img style="height: 400px" [src]="actor.imageUrl" alt="Card image">
-        </div>
-        <div class="card align-self-center">
-            <div class="col">
-                <div class="card-block px-2">
-                    <h2 class="card-title">{{actor.fullName}}</h2>
-                    <h5>Biography:</h5>
-                    <p class="card-text">{{actor.biography}}</p>
-                    <a [routerLink]="['/actor', 'all']" >
-                        <button class="btn btn-info mb-2">Back to Actors</button>
-                    </a>
-                    <a *ngIf="actor.owner" 
-                        [routerLink]="['/actor', 'edit', actor._id]"
-                        [queryParams]="{ id: actor._id, fullName: actor.fullName, biography: actor.biography, gender: actor.gender, imageUrl: actor.imageUrl }"
-                    >
-                        <button class="btn btn-warning mb-2 ml-2">Edit</button>
-                    </a>
-                    <a *ngIf="actor.owner" (click)="deleteActor(actor._id)" >
-                        <button class="btn btn-danger mb-2 ml-2">Delete</button>
-                    </a>
-                </div>
-            </div>
-        </div>
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8 d-flex justify-content-center">
+    <div class="align-self-center">
+      <img style="height: 400px" [src]="actor.imageUrl" alt="Card image" />
     </div>
-    <div class="col-lg-2"></div>
+    <div class="card align-self-center">
+      <div class="col">
+        <div class="card-block px-2">
+          <h2 class="card-title">{{ actor.fullName }}</h2>
+          <h5>Biography:</h5>
+          <p class="card-text">{{ actor.biography }}</p>
+          <a [routerLink]="['/actor', 'all']">
+            <button class="btn btn-info mb-2">Back to Actors</button>
+          </a>
+          <a
+            *ngIf="actor.owner"
+            [routerLink]="['/actor', 'edit', actor._id]"
+            [queryParams]="{
+              id: actor._id,
+              fullName: actor.fullName,
+              biography: actor.biography,
+              gender: actor.gender,
+              imageUrl: actor.imageUrl
+            }"
+          >
+            <button class="btn btn-warning mb-2 ml-2">Edit</button>
+          </a>
+          <a *ngIf="actor.owner" (click)="deleteActor(actor._id)">
+            <button class="btn btn-danger mb-2 ml-2">Delete</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-2"></div>
 </div>
