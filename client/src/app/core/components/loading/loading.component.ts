@@ -5,14 +5,12 @@ import { LoadingServiceService } from '../../services/loading-service.service';
 @Component({
   selector: 'app-loading',
   templateUrl: './loading.component.html',
-  styleUrls: ['./loading.component.scss']
+  styleUrls: ['./loading.component.scss'],
 })
 export class LoadingComponent implements OnInit {
   isLoading: Subject<boolean> = this.loadingService.isLoading;
 
-  constructor(private loadingService: LoadingServiceService) { }
+  constructor(private loadingService: LoadingServiceService) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
