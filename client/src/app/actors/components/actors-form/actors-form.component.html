@@ -1,0 +1,169 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-3"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6">
+      <h1>Actor form</h1>
+      <form #myForm="ngForm" (ngSubmit)="addActor(myForm.value, myForm)">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Full name"
+            required
+            minlength="3"
+            maxlength="25"
+            [(ngModel)]="formData.fullName"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.fullName?.errors,
+              'is-invalid':
+                myForm.controls.fullName?.errors &&
+                myForm?.controls.fullName?.touched
+            }"
+          />
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.fullName?.errors?.required &&
+            (myForm?.controls.fullName?.touched || myForm?.submitted)
+          "
+        >
+          Full name is required!
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.fullName?.errors?.minlength &&
+            (myForm?.controls.fullName?.touched || myForm?.submitted)
+          "
+        >
+          Full name should be 3-25 chars long. You provided
+          {{ myForm.controls.fullName.errors.minlength.actualLength }}
+        </div>
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-venus-mars"></i>
+            </span>
+          </div>
+          <select
+            class="form-control"
+            type="text"
+            name="gender"
+            required
+            [(ngModel)]="formData.gender"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.gender?.errors,
+              'is-invalid':
+                myForm.controls.gender?.errors &&
+                myForm?.controls.gender?.touched
+            }"
+          >
+            <option disabled>Choose gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.gender?.errors?.required &&
+            (myForm?.controls.gender?.touched || myForm?.submitted)
+          "
+        >
+          Please choose a gender!
+        </div>
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-id-card-o"></i>
+            </span>
+          </div>
+          <textarea
+            name="biography"
+            cols="30"
+            rows="5"
+            minlength="30"
+            maxlength="500"
+            placeholder="Short biography"
+            required
+            [(ngModel)]="formData.biography"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.biography?.errors,
+              'is-invalid':
+                myForm.controls.biography?.errors &&
+                myForm?.controls.biography?.touched
+            }"
+          >
+          </textarea>
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.biography?.errors?.required &&
+            (myForm?.controls.biography?.touched || myForm?.submitted)
+          "
+        >
+          Biography is required!
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.biography?.errors?.minlength &&
+            (myForm?.controls.biography?.touched || myForm?.submitted)
+          "
+        >
+          Biography should be 30-500 chars long. You provided
+          {{ myForm.controls.biography.errors.minlength.actualLength }}
+        </div>
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-picture-o"></i>
+            </span>
+          </div>
+          <input
+            type="text"
+            name="imageUrl"
+            maxlength="180"
+            placeholder="image URL"
+            required
+            [(ngModel)]="formData.imageUrl"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.imageUrl?.errors,
+              'is-invalid':
+                myForm.controls.imageUrl?.errors &&
+                myForm?.controls.imageUrl?.touched
+            }"
+          />
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.imageUrl?.errors?.required &&
+            (myForm?.controls.imageUrl?.touched || myForm?.submitted)
+          "
+        >
+          Image URL is required!
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">{{ mode }}</button>
+        </div>
+
+        <!-- <pre>{{ myForm.value | json }}</pre> -->
+      </form>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-3"></div>
+  </div>
+</div>

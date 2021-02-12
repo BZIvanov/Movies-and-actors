@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-3"></div>
+    <div class="col-lg-4 col-md-4 col-sm-6">
+      <h1>Login Form</h1>
+      <form #myForm="ngForm" (ngSubmit)="login(myForm.value, myForm)">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input
+            type="text"
+            name="email"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.email?.errors,
+              'is-invalid':
+                myForm.controls.email?.errors && myForm?.controls.email?.touched
+            }"
+            placeholder="Your email"
+            minlength="3"
+            maxlength="25"
+            required
+            ngModel
+          />
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.email?.errors?.required &&
+            (myForm?.controls.email?.touched || myForm?.submitted)
+          "
+        >
+          Email is required!
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.email?.errors?.minlength &&
+            (myForm?.controls.email?.touched || myForm?.submitted)
+          "
+        >
+          Email should be 3-25 chars long. You provided
+          {{ myForm.controls.email.errors.minlength.actualLength }}
+        </div>
+
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+          </div>
+          <input
+            type="password"
+            name="password"
+            minlength="5"
+            maxlength="30"
+            [ngClass]="{
+              'form-control': true,
+              'is-valid': !myForm.controls.password?.errors,
+              'is-invalid':
+                myForm.controls.password?.errors &&
+                myForm?.controls.password?.touched
+            }"
+            placeholder="Your password"
+            required
+            ngModel
+          />
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.password?.errors?.required &&
+            (myForm?.controls.password?.touched || myForm?.submitted)
+          "
+        >
+          Password is required!
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="
+            myForm?.controls.password?.errors?.minlength &&
+            (myForm?.controls.password?.touched || myForm?.submitted)
+          "
+        >
+          Password length should be between 5-30 characters!
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Login</button>
+        </div>
+
+        <!-- <pre>{{ myForm.value | json }}</pre> -->
+      </form>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-3"></div>
+  </div>
+</div>
