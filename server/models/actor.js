@@ -19,7 +19,7 @@ const actorSchema = mongoose.Schema({
   },
   createdAt: {
     type: mongoose.Schema.Types.Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 
