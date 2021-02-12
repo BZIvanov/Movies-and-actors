@@ -1,0 +1,14 @@
+<div class="container owner">
+  <h1 class="text-center">Actors List</h1>
+  <div class="d-flex justify-content-center">
+    <app-actors-search (searchedName)="onSearch($event)"></app-actors-search>
+  </div>
+  <hr />
+  <div class="row">
+    <app-actor
+      class="col-lg-4 col-md-6 col-sm-6 mt-3 mb-3"
+      *ngFor="let actor of actors"
+      [actor]="actor"
+    ></app-actor>
+  </div>
+</div>
