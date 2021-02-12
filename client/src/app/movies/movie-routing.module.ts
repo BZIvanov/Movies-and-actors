@@ -8,18 +8,25 @@ import { MovieDetailsResolverService } from './services/movie-details-resolver.s
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
 import { DeactivateFormService } from './services/deactivate-form.service';
 
-
 const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'all', component: AllMoviesComponent },
-    { path: 'my-movies', component: MyMoviesComponent },
-    { path: 'add', component: MovieFormComponent },
-    { path: 'edit/:id', component: MovieFormComponent, canDeactivate:[DeactivateFormService]},
-    { path: 'details/:id', component: MovieDetailsComponent, resolve: { targetMovie: MovieDetailsResolverService } }
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'all', component: AllMoviesComponent },
+  { path: 'my-movies', component: MyMoviesComponent },
+  { path: 'add', component: MovieFormComponent },
+  {
+    path: 'edit/:id',
+    component: MovieFormComponent,
+    canDeactivate: [DeactivateFormService],
+  },
+  {
+    path: 'details/:id',
+    component: MovieDetailsComponent,
+    resolve: { targetMovie: MovieDetailsResolverService },
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class MovieRoutingModule { }
+export class MovieRoutingModule {}

@@ -10,21 +10,15 @@ import { ActorComponent } from './components/actors-list/actor/actor.component';
 import { ActorsHandlerService } from './services/actors-handler.service';
 import { ActorDetailsComponent } from './components/actor-details/actor-details.component';
 
-
 @NgModule({
   declarations: [
     ActorsListComponent,
     ActorsSearchComponent,
     ActorsFormComponent,
     ActorComponent,
-    ActorDetailsComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ActorsRoutingModule
+    ActorDetailsComponent,
   ],
-  providers: [
-    ActorsHandlerService
-  ]
+  imports: [CommonModule, FormsModule, ActorsRoutingModule],
+  providers: [ActorsHandlerService],
 })
-export class ActorsModule { }
+export class ActorsModule {}
